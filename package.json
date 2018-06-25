@@ -1,0 +1,38 @@
+{
+  "name": "andersen-internship-todo-list",
+  "version": "1.0.0",
+  "description": "just test application",
+  "main": "index.js",
+  "scripts": {
+    "start -dev": "webpack-dev-server --display-error-details --config ./webpack.development.config.js",
+    "lint": "eslint ./src --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DafnaRita/andersen-internship-todo-list.git"
+  },
+  "author": "Marita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DafnaRita/andersen-internship-todo-list/issues"
+  },
+  "homepage": "https://github.com/DafnaRita/andersen-internship-todo-list#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "webpack": "^4.12 .1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
