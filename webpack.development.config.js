@@ -1,18 +1,19 @@
-// const ExtractTextPlugin = require ('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.join(__dirname, '/dist'),
         filename: 'bundle.js',
-        publicPath: '/',
+        publicPath: '/dist',
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/template/index.html',
-            isOk: true,
+            template: './src/template/index.html',
             inject: 'body',
+            isOk: true,
+            filename: 'index.html',
         }),
     ],
     watch: true,
@@ -22,14 +23,22 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js/,
-                loader: 'babel-loader',
-                exclude: /(node_modules|bower_components)/,
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ['transform-object-rest-spread'],
+                    },
+                },
+                exclude: /(node_modules)/,
             },
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader',
             },
         ],
+    },
+    devServer: {
+        port: 8080,
     },
 };
