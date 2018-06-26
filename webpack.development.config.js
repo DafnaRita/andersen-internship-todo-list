@@ -8,18 +8,7 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/dist',
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/template/index.html',
-            inject: 'body',
-            isOk: true,
-            filename: 'index.html',
-        }),
-    ],
     watch: true,
-    resolve: {
-        modules: ['node_modules'],
-    },
     module: {
         rules: [
             {
@@ -30,7 +19,7 @@ module.exports = {
                         plugins: ['transform-object-rest-spread'],
                     },
                 },
-                exclude: /(node_modules)/,
+                exclude: path.join(__dirname, 'node_modules'),
             },
             {
                 test: /\.css$/,
@@ -41,4 +30,12 @@ module.exports = {
     devServer: {
         port: 8080,
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/template/index.html',
+            inject: 'body',
+            isOk: true,
+            filename: 'index.html',
+        }),
+    ],
 };
