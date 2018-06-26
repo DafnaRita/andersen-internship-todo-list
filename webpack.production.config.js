@@ -10,19 +10,6 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/dist',
     },
-    plugins: [
-        new CleanWebpackPlugin(path.join(__dirname, '/dist'), { beforeEmit: true }),
-        new HtmlWebpackPlugin({
-            template: './src/template/index.html',
-            inject: 'body',
-            isOk: true,
-            filename: 'index.html',
-        }),
-    ],
-    watch: true,
-    resolve: {
-        modules: ['node_modules'],
-    },
     module: {
         rules: [
             {
@@ -33,7 +20,7 @@ module.exports = {
                         plugins: ['transform-object-rest-spread'],
                     },
                 },
-                exclude: /(node_modules)/,
+                exclude: path.join(__dirname, 'node_modules'),
             },
             {
                 test: /\.css$/,
@@ -41,4 +28,13 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new CleanWebpackPlugin(path.join(__dirname, '/dist'), { beforeEmit: true }),
+        new HtmlWebpackPlugin({
+            template: './src/template/index.html',
+            inject: 'body',
+            isOk: true,
+            filename: 'index.html',
+        }),
+    ],
 };
