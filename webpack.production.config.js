@@ -35,7 +35,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(path.join(__dirname, '/dist'), { beforeEmit: true }),
         new HtmlWebpackPlugin({
-            template: './src/template/index.html',
+            template: './src/index.html',
             isOk: true,
             filename: 'index.html',
         }),
