@@ -2,6 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -24,7 +25,10 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader',
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
             },
         ],
     },
@@ -32,9 +36,9 @@ module.exports = {
         new CleanWebpackPlugin(path.join(__dirname, '/dist'), { beforeEmit: true }),
         new HtmlWebpackPlugin({
             template: './src/template/index.html',
-            inject: 'body',
             isOk: true,
             filename: 'index.html',
         }),
+        new ExtractTextPlugin('styles.css'),
     ],
 };

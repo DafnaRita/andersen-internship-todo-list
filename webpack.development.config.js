@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -23,19 +24,22 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader',
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
             },
         ],
     },
     devServer: {
-        port: 8080,
+        publicPath: 'http://localhost:8080/',
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/template/index.html',
-            inject: 'body',
             isOk: true,
             filename: 'index.html',
         }),
+        new ExtractTextPlugin('styles.css'),
     ],
 };
