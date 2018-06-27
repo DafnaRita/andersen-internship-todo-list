@@ -5,11 +5,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+    mode: 'production',
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'bundle.js',
-        publicPath: '/dist',
     },
     module: {
         rules: [
@@ -36,7 +36,6 @@ module.exports = {
         new CleanWebpackPlugin(path.join(__dirname, '/dist'), { beforeEmit: true }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            isOk: true,
             filename: 'index.html',
         }),
         new ExtractTextPlugin('styles.css'),
