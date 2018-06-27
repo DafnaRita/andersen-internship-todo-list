@@ -2,11 +2,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'bundle.js',
-        publicPath: '/dist',
     },
     watch: true,
     module: {
@@ -28,16 +28,12 @@ module.exports = {
         ],
     },
     devServer: {
-        port: 8080,
-        host: 'localhost',
-        openPage: '/dist',
         open: true,
         watchContentBase: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            isOk: true,
             filename: 'index.html',
         }),
     ],
