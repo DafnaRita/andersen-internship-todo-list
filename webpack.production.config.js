@@ -8,7 +8,7 @@ module.exports = {
     mode: 'production',
     entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.[hash:8].js',
     },
     module: {
@@ -33,7 +33,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(path.join(__dirname, '/dist'), { beforeEmit: true }),
+        new CleanWebpackPlugin(path.join(__dirname, 'dist'), { beforeEmit: true }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',

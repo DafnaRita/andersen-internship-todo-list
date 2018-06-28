@@ -5,10 +5,9 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.[hash:8].js',
     },
-    watch: true,
     module: {
         rules: [
             {
@@ -32,7 +31,6 @@ module.exports = {
     },
     devServer: {
         open: true,
-        watchContentBase: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
