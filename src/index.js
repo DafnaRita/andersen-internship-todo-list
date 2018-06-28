@@ -1,6 +1,9 @@
 import './css/style.css';
-import mergeTest from './mergeTest';
+import Model from './Model';
+import View from './View';
 
-const obj1 = { str1: 'ES6 is working, Victor!' };
-const obj2 = { str2: 'Eeeeee!' };
-console.log(mergeTest(obj1, obj2));
+const view = new View();
+const model = new Model();
+
+model.on('addedItem', item => View.renderNewItem(item));
+view.on('enterTask', task => model.addItem(task));
