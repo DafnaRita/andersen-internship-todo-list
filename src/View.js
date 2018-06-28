@@ -5,8 +5,11 @@ export default class View extends EventEmitter {
         super();
         setTimeout(() => {
             this.emit('enterTask', 'do something');
-            this.emit('enterTask', 'do something else');
         }, 1000);
+
+        setTimeout(() => {
+            this.emit('enterTask', 'do something else');
+        }, 2000);
     }
 
     static renderNewItem(item) {
