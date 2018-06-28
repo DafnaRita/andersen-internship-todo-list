@@ -6,7 +6,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'bundle.[hash].js',
+        filename: 'bundle.[hash:8].js',
     },
     watch: true,
     module: {

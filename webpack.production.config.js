@@ -9,7 +9,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'bundle.[hash].js',
+        filename: 'bundle.[hash:8].js',
     },
     module: {
         rules: [
@@ -38,6 +38,6 @@ module.exports = {
             template: './src/index.html',
             filename: 'index.html',
         }),
-        new ExtractTextPlugin('styles.[hash].css'),
+        new ExtractTextPlugin('styles.[hash:8].css'),
     ],
 };
