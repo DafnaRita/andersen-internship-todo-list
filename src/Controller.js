@@ -18,7 +18,7 @@ export default class Controller {
             });
         });
         this.view.on('itemAdded', (items) => {
-            View.renderItems(items);
+            this.view.renderItems(items);
         });
     }
 
