@@ -1,14 +1,13 @@
-import GeneratorId from './helpers/GeneratorId';
+import generateId from './helpers/GeneratorId';
 import Item from './Item';
 
 export default class Model {
     constructor() {
         this.items = new Map();
-        this.generatorId = new GeneratorId().getGeneratorID();
     }
 
-    convertToItem(label) {
-        const id = this.generatorId();
+    static convertItem(label) {
+        const id = generateId();
         const item = new Item(label, id);
         return item;
     }

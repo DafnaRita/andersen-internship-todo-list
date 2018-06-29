@@ -1,4 +1,4 @@
-import View from './View';
+import Model from './Model';
 
 export default class Controller {
     constructor(view, model) {
@@ -9,16 +9,17 @@ export default class Controller {
 
     setEventEmitters() {
         this.view.on('enterItem', label => this.addItem(label));
-
-        this.view.on('addItemToModel', (label) => {
-            const item = this.model.convertToItem(label);
-            const newItem = this.model.addItem(item, this.view);
-            this.view.emit('itemAdded', {
-                items: [newItem],
-            });
-        });
+        this.view.on('addItemToModel', label => this.addItemToModel(label));
         this.view.on('itemAdded', (items) => {
             this.view.renderItems(items);
+        });
+    }
+
+    addItemToModel(label) {
+        const item = Model.convertItem(label);
+        const newItem = this.model.addItem(item, this.view);
+        this.view.emit('itemAdded', {
+            items: [newItem],
         });
     }
 

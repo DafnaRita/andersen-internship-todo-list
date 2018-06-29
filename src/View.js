@@ -3,39 +3,39 @@ import EventEmitter from './EventEmitter';
 export default class View extends EventEmitter {
     constructor() {
         super();
-        this.itemInput = document.getElementById('label-value');
-        this.button = document.getElementById('add-item');
-        this.list = document.getElementById('list');
-        this.getItemName = () => document.getElementById('label-value').value;
+        this.itemInput = document.getElementById('task-description');
+        this.buttonAddingElement = document.getElementById('add-item');
+        this.itemsList = document.getElementById('list');
+        this.getInputValue = () => document.getElementById('task-description').value;
         this.addEvents();
     }
 
     addEvents() {
-        this.button.addEventListener('click', () => {
-            if (View.isInputFieldEmpty) {
+        this.buttonAddingElement.addEventListener('click', () => {
+            if ((View.inputField.length === 0 || !View.inputField.trim())) {
                 return;
             }
-            this.emit('enterItem', this.getItemName());
+            this.emit('enterItem', this.getInputValue());
             View.inputField = '';
         });
 
         this.itemInput.addEventListener('keypress', (e) => {
-            if (View.isInputFieldEmpty) {
+            if ((View.inputField.length === 0 || !View.inputField.trim())) {
                 return;
             }
             if (e.key === 'Enter') {
-                this.emit('enterItem', this.getItemName());
+                this.emit('enterItem', this.getInputValue());
                 View.inputField = '';
             }
         });
     }
 
     static set inputField(v) {
-        document.getElementById('label-value').value = v;
+        document.getElementById('task-description').value = v;
     }
 
-    static get isInputFieldEmpty() {
-        return document.getElementById('label-value').value === '';
+    static get inputField() {
+        return document.getElementById('task-description').value;
     }
 
     renderItems(renderInfo) {
@@ -44,7 +44,7 @@ export default class View extends EventEmitter {
             const label = document.createTextNode(item.label);
             listItem.setAttribute('id', item.id);
             listItem.appendChild(label);
-            this.list.appendChild(listItem);
+            this.itemsList.appendChild(listItem);
         });
     }
 }
