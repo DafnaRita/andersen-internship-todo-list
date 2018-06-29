@@ -5,7 +5,6 @@ export default class Model {
     constructor() {
         this.items = new Map();
         this.generatorId = new GeneratorId().getGeneratorID();
-        console.log(this.generatorId);
     }
 
     convertToItem(label) {
