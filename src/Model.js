@@ -1,9 +1,7 @@
 import Item from './Item';
-import EventEmitter from './EventEmitter';
 
-export default class Model extends EventEmitter {
+export default class Model {
     constructor() {
-        super();
         let nextID = 0;
         const getGeneratorID = () => {
             return () => {
@@ -23,10 +21,8 @@ export default class Model extends EventEmitter {
     }
 
     addItem(item) {
-        console.log(`added Item with label - ${item.label} nd id - ${item.id} to Model `);
+        console.log(`added Item with label - ${item.label} and id - ${item.id} to Model `);
         this.items.set(item.id, item);
-        this.emit('addedItem', {
-            items: [item],
-        });
+        return this.items.get(item.id);
     }
 }
