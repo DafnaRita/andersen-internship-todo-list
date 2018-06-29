@@ -16,15 +16,17 @@ export default class Model extends EventEmitter {
         this.getID = getGeneratorID(nextID);
     }
 
-    static convertToItem(task) {
-        const i = new Item(task);
-        return i;
+    convertToItem(label) {
+        const id = this.getID();
+        const item = new Item(label, id);
+        return item;
     }
 
     addItem(item) {
-        const id = this.getID();
-        console.log(`added Item with id - ${id} and task - ${item.task} to Model `);
-        this.items.set(id, item);
-        this.emit('addedItem', item);
+        console.log(`added Item with label - ${item.label} nd id - ${item.id} to Model `);
+        this.items.set(item.id, item);
+        this.emit('addedItem', {
+            items: [item],
+        });
     }
 }

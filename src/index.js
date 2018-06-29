@@ -7,14 +7,11 @@ const view = new View();
 const model = new Model();
 const controller = new Controller();
 
-controller.on('addItem', (task) => {
-    const item = Model.convertToItem(task);
+controller.on('addItem', (label) => {
+    const item = model.convertToItem(label);
     model.addItem(item);
 });
-model.on('addedItem', item => View.renderNewItem(item));
-view.on('enterTask', task => controller.addItem(task));
-
-setTimeout(() => {
-    console.log('Current state of model');
-    console.log(model.items);
-}, 3000);
+model.on('addedItem', (items) => {
+    View.renderItems(items);
+});
+view.on('enterItem', label => controller.addItem(label));

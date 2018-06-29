@@ -1,7 +1,8 @@
 export default class Item {
-    constructor(task) {
+    constructor(label, id) {
         this.isClosed = false;
-        this.task = task;
+        this.label = label;
+        this.id = id;
     }
 
     closeItem() {

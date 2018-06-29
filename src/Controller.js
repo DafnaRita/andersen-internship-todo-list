@@ -5,7 +5,7 @@ export default class Controller extends EventEmitter {
         super();
     }
 
-    addItem(task) {
-        this.emit('addItem', task);
+    addItem(label) {
+        this.emit('addItem', label);
     }
 }
