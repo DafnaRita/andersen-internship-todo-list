@@ -10,11 +10,11 @@ export default class EventEmitter {
         this.listeners.get(label).push(callback);
     }
 
-    emit(label, ...args) {
+    emit(label, payload) {
         const invokedListeners = this.listeners.get(label);
         if (invokedListeners.length > 0) {
             invokedListeners.forEach((listener) => {
-                listener(...args);
+                listener(payload);
             });
             return true;
         }
