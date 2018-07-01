@@ -1,5 +1,5 @@
 import EventEmitter from './EventEmitter';
-import ACTIONS from './helpers/actionTypes';
+import actionTypes from './helpers/actionTypes';
 import ItemRenderHelper from './helpers/ItemRenderHelper';
 
 export default class View extends EventEmitter {
@@ -17,7 +17,7 @@ export default class View extends EventEmitter {
             if ((View.inputField.length === 0 || !View.inputField.trim())) {
                 return;
             }
-            this.emit(ACTIONS.ENTER_ITEM, this.getInputValue());
+            this.emit(actionTypes.ENTER_ITEM, this.getInputValue());
             View.inputField = '';
         });
 
@@ -26,7 +26,7 @@ export default class View extends EventEmitter {
                 return;
             }
             if (e.key === 'Enter') {
-                this.emit(ACTIONS.ENTER_ITEM, this.getInputValue());
+                this.emit(actionTypes.ENTER_ITEM, this.getInputValue());
                 View.inputField = '';
             }
         });
