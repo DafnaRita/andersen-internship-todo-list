@@ -1,12 +1,13 @@
 import EventEmitter from './EventEmitter';
 import ACTIONS from './helpers/actionTypes';
+import ItemRenderHelper from './helpers/ItemRenderHelper';
 
 export default class View extends EventEmitter {
     constructor() {
         super();
-        this.itemInput = document.getElementById('task-description');
+        this.taskInput = document.getElementById('task-description');
         this.buttonAddingElement = document.getElementById('add-item');
-        this.itemsList = document.getElementById('list');
+        this.taskList = document.getElementById('list');
         this.getInputValue = () => document.getElementById('task-description').value;
         this.addEvents();
     }
@@ -20,7 +21,7 @@ export default class View extends EventEmitter {
             View.inputField = '';
         });
 
-        this.itemInput.addEventListener('keypress', (e) => {
+        this.taskInput.addEventListener('keypress', (e) => {
             if ((View.inputField.length === 0 || !View.inputField.trim())) {
                 return;
             }
@@ -41,11 +42,10 @@ export default class View extends EventEmitter {
 
     renderItems(renderInfo) {
         renderInfo.items.forEach((item) => {
-            const listItem = document.createElement('li');
-            const description = document.createTextNode(item.description);
-            listItem.setAttribute('id', item.id);
-            listItem.appendChild(description);
-            this.view.itemsList.appendChild(listItem);
+            const itemRH = new ItemRenderHelper(this.view.taskList);
+            itemRH.generateItem(item.description);
+            itemRH.addId(item.id);
+            itemRH.renderItem();
         });
     }
 }

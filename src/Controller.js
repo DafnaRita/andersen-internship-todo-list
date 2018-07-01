@@ -23,7 +23,6 @@ export default class Controller {
     }
 
     addItem(description) {
-        console.log(this);
         this.view.emit(ACTIONS.ADD_ITEM_TO_MODEL, description);
     }
 }
