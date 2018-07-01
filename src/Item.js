@@ -1,8 +1,8 @@
 export default class Item {
-    constructor(label, id) {
-        this.isClosed = false;
-        this.label = label;
+    constructor(description, id) {
         this.id = id;
+        this.description = description;
+        this.isClosed = false;
     }
 
     closeItem() {

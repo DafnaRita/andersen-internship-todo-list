@@ -1,4 +1,5 @@
 import Model from './Model';
+import ACTIONS from './helpers/actionTypes';
 
 export default class Controller {
     constructor(view, model) {
@@ -8,22 +9,21 @@ export default class Controller {
     }
 
     setEventEmitters() {
-        this.view.on('enterItem', label => this.addItem(label));
-        this.view.on('addItemToModel', label => this.addItemToModel(label));
-        this.view.on('itemAdded', (items) => {
-            this.view.renderItems(items);
-        });
+        this.view.on(ACTIONS.ENTER_ITEM, this.addItem.bind(this));
+        this.view.on(ACTIONS.ADD_ITEM_TO_MODEL, this.addItemToModel.bind(this));
+        this.view.on(ACTIONS.RENDER_ITEM, this.view.renderItems.bind(this));
     }
 
-    addItemToModel(label) {
-        const item = Model.convertItem(label);
+    addItemToModel(description) {
+        const item = Model.convertItem(description);
         const newItem = this.model.addItem(item, this.view);
-        this.view.emit('itemAdded', {
+        this.view.emit(ACTIONS.RENDER_ITEM, {
             items: [newItem],
         });
     }
 
-    addItem(label) {
-        this.view.emit('addItemToModel', label);
+    addItem(description) {
+        console.log(this);
+        this.view.emit(ACTIONS.ADD_ITEM_TO_MODEL, description);
     }
 }

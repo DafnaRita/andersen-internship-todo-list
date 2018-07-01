@@ -1,4 +1,5 @@
 import EventEmitter from './EventEmitter';
+import ACTIONS from './helpers/actionTypes';
 
 export default class View extends EventEmitter {
     constructor() {
@@ -15,7 +16,7 @@ export default class View extends EventEmitter {
             if ((View.inputField.length === 0 || !View.inputField.trim())) {
                 return;
             }
-            this.emit('enterItem', this.getInputValue());
+            this.emit(ACTIONS.ENTER_ITEM, this.getInputValue());
             View.inputField = '';
         });
 
@@ -24,7 +25,7 @@ export default class View extends EventEmitter {
                 return;
             }
             if (e.key === 'Enter') {
-                this.emit('enterItem', this.getInputValue());
+                this.emit(ACTIONS.ENTER_ITEM, this.getInputValue());
                 View.inputField = '';
             }
         });
@@ -41,10 +42,10 @@ export default class View extends EventEmitter {
     renderItems(renderInfo) {
         renderInfo.items.forEach((item) => {
             const listItem = document.createElement('li');
-            const label = document.createTextNode(item.label);
+            const description = document.createTextNode(item.description);
             listItem.setAttribute('id', item.id);
-            listItem.appendChild(label);
-            this.itemsList.appendChild(listItem);
+            listItem.appendChild(description);
+            this.view.itemsList.appendChild(listItem);
         });
     }
 }
