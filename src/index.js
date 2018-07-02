@@ -2,16 +2,16 @@ import './css/style.css';
 import Model from './Model';
 import View from './View';
 import Controller from './Controller';
-import EventLogger from './helpers/EventLogger';
+import EventLogger from './helpers/eventLogger';
 
 const view = new View();
 const model = new Model();
 const controller = new Controller(view, model);
 
 const logConfig = {
-    infoLevel: true,
-    errorLevel: false,
+    info: true,
+    warn: true,
 };
 
-const lol = new EventLogger(logConfig);
-lol.info(2);
+const eventLogger = new EventLogger(logConfig);
+window.logger = eventLogger;

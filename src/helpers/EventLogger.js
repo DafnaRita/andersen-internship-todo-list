@@ -1,27 +1,21 @@
-export default function EventLogger(config) {
+import getCurrentDate from './getFormatedDate';
 
-    Object.keys(config).forEach((fld) => {
-        if (config.hasOwnProperty(fld)) {
-            this[fld] = config[fld];
+const logLevel = {
+    info: { color: 'color: blue;' },
+    warn: { color: 'color: orange;' },
+};
+
+export default function eventLogger(conf) {
+
+    this.messageTemplate = () => '%c[%s] [TIME]%s [%s] [PAYLOAD]%s';
+
+    this.setLogLevel = (level) => {
+        this[level] = (event, payload) => {
+            if (typeof payload === 'object' ) {
+                payload = JSON.stringify(payload);
+            }
+            console.log(this.messageTemplate(), logLevel[level].color, level, getCurrentDate(), event, payload);
         }
-    });
+    }
+    Object.keys(logLevel).forEach(level => this.setLogLevel(level));
 }
-
-EventLogger.prototype.info = function info(str) {
-    if (this.info) {
-        return console.log(
-            '%c[INFO]:%s:%s:',
-            'color: blue;',
-            '02/07/18-02:13',
-            str,
-        );
-    }
-    return null;
-};
-
-EventLogger.prototype.error = function info(str) {
-    if (this.info) {
-        return console.log('%c[ERROR]:%s:%s', 'color: blue;', '02/07/18-02:13', str);
-    }
-    return null;
-};
