@@ -9,7 +9,7 @@ const model = new Model();
 const controller = new Controller(view, model);
 
 const logConfig = {
-    info: true,
+    info: false,
     warn: true,
 };
 

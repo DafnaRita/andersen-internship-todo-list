@@ -12,6 +12,7 @@ export default class EventEmitter {
 
     emit(label, payload) {
         window.logger.info(label, payload);
+        window.logger.warn(label, payload);
         const invokedListeners = this.listeners.get(label);
         if (invokedListeners.length > 0) {
             invokedListeners.forEach((listener) => {
