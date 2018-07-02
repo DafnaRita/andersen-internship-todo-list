@@ -13,7 +13,7 @@ export default class Model {
     }
 
     addItem(item) {
-        console.log(`added Item with description - ${item.description} and id - ${item.id} to Model `);
+        // console.log(`added Item with description - ${item.description} and id - ${item.id} to Model `);
         this.items.set(item.id, item);
         return this.items.get(item.id);
     }
