@@ -1,0 +1,84 @@
+/****** common settings *********/
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.flex { 
+    display: flex;
+}
+
+/****** article settings *********/
+article {
+    width: 800px;
+    margin: 0 auto;
+    flex-direction: column; 
+    align-items: center; 
+    overflow: auto; 
+}
+
+@media screen and (max-width: 800px) {
+    article {         
+        width: auto;
+        margin: 0 40px;
+    }
+}
+
+article.shadow{
+    -webkit-box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
+    -moz-box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
+    box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
+}
+
+/****** header, user inputs and list of items *********/
+header.app-name {
+    display: inline-block;
+    text-align: center;
+    font-size: 5vh;
+    margin: 5vh 0;
+}
+
+div.app-user-input.flex {
+    width: 100%;
+    height: 10vh;
+    flex-direction: row; 
+    justify-content: space-around;
+    background-color: white;
+}
+
+div#app-list-container {
+    width: 100%;
+    background-color: white;
+    min-height: 2vh;
+}
+
+/****** user inputs *********/
+input#task-description {
+    flex-basis: 88%;
+    border: none;
+    outline:none;
+    padding-left: 2vw;
+}
+
+button#add-item {
+    flex-basis: 12%;
+    border: none;
+    outline:none;
+    background-color: #f5f5f5;
+    margin: 15px 10px;
+}
+
+button.shadow{
+    -webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.32); 
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.32);
+}
+
+/****** list *********/
+ul {
+    list-style-type: none;
+    -webkit-padding-start: 5vw;
+}
