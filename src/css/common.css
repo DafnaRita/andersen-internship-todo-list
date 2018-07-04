@@ -5,7 +5,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    color: #4d4d4d;
     text-align: center;
+    font-family: 'robotoregular';
+    font-weight: 500;
+    font-size: 3vh;
 }
 
 .flex { 
@@ -40,6 +44,8 @@ header.app-name {
     text-align: center;
     font-size: 5vh;
     margin: 5vh 0;
+    font-weight: 700;
+    font-size: 6vh;
 }
 
 div.app-user-input.flex {
@@ -48,6 +54,7 @@ div.app-user-input.flex {
     flex-direction: row; 
     justify-content: space-around;
     background-color: white;
+    border-bottom: 1px solid #b9b9b9;
 }
 
 div#app-list-container {
@@ -61,7 +68,14 @@ input#task-description {
     flex-basis: 88%;
     border: none;
     outline:none;
-    padding-left: 2vw;
+}
+
+input[type='text'] {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding-left: 5px;
 }
 
 button#add-item {
@@ -69,7 +83,11 @@ button#add-item {
     border: none;
     outline:none;
     background-color: #f5f5f5;
+    color: inherit;
     margin: 15px 10px;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
 }
 
 button.shadow{
@@ -78,7 +96,20 @@ button.shadow{
 }
 
 /****** list *********/
-ul {
+div#app-list-container > ul.flex {
     list-style-type: none;
     -webkit-padding-start: 5vw;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    flex-direction: column;
+}
+
+ul.flex > li {
+    border-bottom: 1px solid #b9b9b9;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    word-wrap: break-word;
+    display: inline;
 }
