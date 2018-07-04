@@ -2,18 +2,18 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>ToDo</title>
     </head> 
     <body>
-        <article>
-            <header>ToDo application</header>
-            <div class="app-container">
-                Новое задание?
+        <header class="app-name">ToDo</header>
+        <article class="flex app-container shadow">
+            <div class="app-user-input flex">
                 <input id="task-description" type="text" name="item"> 
-                <button id="add-item" type="button">Добавить</button>
-                <div id="list-container">
-                    <ul id="list"></ul>
-                </div>
+                <button id="add-item" class="shadow" type="button">Добавить</button>
+            </div>
+            <div id="app-list-container" class="flex">
+                <ul id="list"></ul>
             </div>
         </article>
     </body>
