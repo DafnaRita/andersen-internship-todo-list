@@ -9,8 +9,7 @@ export default class Controller {
     }
 
     setEventEmitters() {
-        this.view.on(actionTypes.ENTER_ITEM, this.addItem.bind(this));
-        this.view.on(actionTypes.ADD_ITEM_TO_MODEL, this.addItemToModel.bind(this));
+        this.view.on(actionTypes.ENTER_ITEM, this.addItemToModel.bind(this));
         this.view.on(actionTypes.RENDER_ITEM, this.view.renderItems.bind(this));
     }
 
@@ -20,9 +19,5 @@ export default class Controller {
         this.view.emit(actionTypes.RENDER_ITEM, {
             items: [newItem],
         });
-    }
-
-    addItem(description) {
-        this.view.emit(actionTypes.ADD_ITEM_TO_MODEL, description);
     }
 }
