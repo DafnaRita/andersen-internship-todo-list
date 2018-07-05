@@ -1,115 +1,139 @@
 /****** common settings *********/
+
 body {
     height: 100vh;
-    width: 100vw;
     margin: 0;
     padding: 0;
+
     background-color: #f5f5f5;
     color: #4d4d4d;
-    text-align: center;
+
     font-family: 'robotoregular';
     font-weight: 500;
     font-size: 3vh;
+
+    text-align: center;
 }
 
 .flex { 
     display: flex;
 }
 
-/****** article settings *********/
-article {
+/****** ToDO section settings *********/
+
+section {
     width: 800px;
     margin: 0 auto;
+
     flex-direction: column; 
     align-items: center; 
     overflow: auto; 
 }
 
 @media screen and (max-width: 800px) {
-    article {         
+    section {         
         width: auto;
         margin: 0 40px;
     }
 }
 
-article.shadow{
-    -webkit-box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
-    -moz-box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
-    box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
-}
-
 /****** header, user inputs and list of items *********/
-header.app-name {
-    display: inline-block;
-    text-align: center;
-    font-size: 5vh;
+
+header[role="banner"] {
     margin: 5vh 0;
+
+    display: inline-block;
+
     font-weight: 700;
-    font-size: 6vh;
+    font-size: 10vh;
+    opacity: 0.5;
+
+    text-align: center;
 }
 
-div.app-user-input.flex {
-    width: 100%;
+.user-input-container {
     height: 10vh;
+    width: 100%;
+
     flex-direction: row; 
     justify-content: space-around;
+
     background-color: white;
     border-bottom: 1px solid #b9b9b9;
 }
 
-div#app-list-container {
+#app-list-container {
     width: 100%;
     background-color: white;
-    min-height: 2vh;
 }
 
 /****** user inputs *********/
-input#task-description {
+
+#task-description {
     flex-basis: 88%;
     border: none;
-    outline:none;
+}
+
+#task-description:focus {
+    outline: none;
 }
 
 input[type='text'] {
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    color: inherit;
+    min-width: 20%;
     padding-left: 5px;
 }
 
-button#add-item {
-    flex-basis: 12%;
-    border: none;
-    outline:none;
-    background-color: #f5f5f5;
-    color: inherit;
+#add-item {
     margin: 15px 10px;
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: inherit;
+    flex-basis: 12%;
+
+    border: none;
+    background-color: #f5f5f5;
 }
 
-button.shadow{
-    -webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.32); 
-    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.32);
+input[type='text'], #add-item { /* for applying font settings to button and input*/
+    width: 100%;
+    
+    color: inherit;
+    
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;   
+}
+
+#add-item:focus {
+    outline: none;
 }
 
 /****** list *********/
-div#app-list-container > ul.flex {
-    list-style-type: none;
-    -webkit-padding-start: 5vw;
+
+#app-list-container > ul {
     width: 100%;
     margin: 0;
     padding: 0;
-    text-align: left;
+    
     flex-direction: column;
+    
+    list-style-type: none;
+    text-align: left;
 }
 
-ul.flex > li {
-    border-bottom: 1px solid #b9b9b9;
-    flex-wrap: wrap;
-    padding-left: 10px;
-    word-wrap: break-word;
+ul > li {
     display: inline;
+    padding: 8px;
+    flex-wrap: wrap;
+    
+    border-bottom: 1px solid #b9b9b9;
+
+    word-wrap: break-word;
+}
+
+/****** effects *********/
+
+.small-shadow {
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.32);
+}
+
+.big-shadow {
+    box-shadow: 0px 9px 30px 0px rgba(57, 50, 50, 0.31);
 }

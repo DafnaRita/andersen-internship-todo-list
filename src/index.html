@@ -2,19 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ToDo</title>
     </head> 
     <body>
-        <header class="app-name">ToDo</header>
-        <article class="flex app-container shadow">
-            <div class="app-user-input flex">
-                <input id="task-description" type="text" name="item"> 
-                <button id="add-item" class="shadow" type="button">Add</button>
+        <header role="banner">ToDo</header>
+        <section class="flex app-container big-shadow" role="main">
+            <div class="user-input-container flex">
+                <input id="task-description" type="text" name="item" role="textbox"> 
+                <button id="add-item" class="small-shadow" type="button">Add</button>
             </div>
             <div id="app-list-container" class="flex">
                 <ul id="list" class="flex"></ul>
             </div>
-        </article>
+        </section>
     </body>
 </html>
