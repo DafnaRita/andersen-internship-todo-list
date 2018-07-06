@@ -71,11 +71,12 @@ button {
     flex: 1;
     padding-left: 10rem;
 
-    transition: border-bottom 0.2s ease;
+    border-bottom: 3px solid var(--light-accent-color);
+    transition: border-bottom 0.4s linear;
 }
 
 .task-description:focus {
-    border-bottom: 1px solid var(--focus-color);
+    border-bottom: 3px solid var(--focus-color);
 }
 
 .add-task {
