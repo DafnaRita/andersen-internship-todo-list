@@ -13,7 +13,7 @@ body {
 
 @media screen and (max-width: 800px) {
     html {
-        font-size: calc(100vw / var(---default-mobile-screen-size));
+        font-size: calc(100vw / var(--default-mobile-screen-size));
     }
 
     .todo-app {
