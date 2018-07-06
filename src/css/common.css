@@ -94,7 +94,7 @@ button {
 }
 
 .task {
-    height: 30rem;
+    min-height: 30rem;
     padding: 10rem;
 
     border-bottom: 1px solid var(--light-accent-color);
