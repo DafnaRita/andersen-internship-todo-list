@@ -11,6 +11,7 @@ export default class ItemRenderHelper {
 
     addId(id) {
         this.item.setAttribute('id', id);
+        this.item.setAttribute('class', 'task');
     }
 
     renderItem() {
