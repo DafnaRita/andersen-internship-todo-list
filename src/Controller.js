@@ -15,7 +15,7 @@ export default class Controller {
 
     addItemToModel(description) {
         const item = Model.convertItem(description);
-        const newItem = this.model.addItem(item, this.view);
+        const newItem = this.model.addItem(item);
         this.view.emit(actionTypes.RENDER_ITEM, {
             items: [newItem],
         });
