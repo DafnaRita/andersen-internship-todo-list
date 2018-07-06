@@ -6,7 +6,7 @@ export default class View extends EventEmitter {
     constructor() {
         super();
         this.taskInput = document.getElementById('task-description');
-        this.buttonAddingElement = document.getElementById('add-item');
+        this.buttonAddingElement = document.getElementById('add-task');
         this.taskList = document.getElementById('list');
         this.getInputValue = () => document.getElementById('task-description').value;
         this.addEvents();
