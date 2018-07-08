@@ -1,0 +1,107 @@
+@import './consts.css';
+
+/* common */
+
+body {
+    background-color: var(--bg-color);
+    
+    font-family: 'Roboto';
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: calc(100vw / var(--default-mobile-screen-size));
+    }
+
+    .todo-app {
+        width: auto;
+        margin: 0 40px;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    html {
+        font-size: 1px;
+    }
+
+    .todo-app {
+        width: 800px;
+        margin: 0 auto;
+    }
+}
+
+/* header */
+
+.app-name {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    min-width: var(--app-min-width);
+
+    font-size: 24px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+/* task inputs */
+
+input, button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.new-task-container {
+    display: flex;
+    height: 45px;
+    margin-bottom: 20px;
+    min-width: 100px; 
+}
+
+.task-description {
+    min-width: calc(var(--app-min-width) - var(--button-min-width));
+    flex: 1;
+    
+    padding-left: 10px;
+    border-bottom: 3px solid var(--light-accent-color);
+    transition: border-bottom 0.4s linear;
+}
+
+.task-description:focus {
+    border-bottom: 3px solid var(--focus-color);
+}
+
+.add-task {
+    min-width: 50px;
+    padding: 15px 5px 30px 5px;
+}
+
+.add-task:hover {
+    color: white;
+    background-color: var(--focus-color);
+}
+
+/* tasks list*/
+
+.tasks-list {
+    min-width: var(--app-min-width);
+    background: white;
+}
+
+.task {
+    min-height: 30px;
+    padding: 10px;
+
+    border-bottom: 1px solid var(--light-accent-color);
+    word-wrap: break-word;
+}
+
+.tasks-list :last-child {
+    border-bottom: none;
+}
