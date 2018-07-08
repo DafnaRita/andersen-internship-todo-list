@@ -27,6 +27,16 @@ module.exports = {
                     { loader: 'css-loader' },
                 ],
             },
+            {
+                test: /\.woff$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts',
+                    },
+                }],
+            },
         ],
     },
     devServer: {

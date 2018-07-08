@@ -1,6 +1,8 @@
 import './css/style.css';
-import mergeTest from './mergeTest';
+import Model from './Model';
+import View from './View';
+import Controller from './Controller';
 
-const obj1 = { str1: 'ES6 is working, Victor!' };
-const obj2 = { str2: 'Eeeeee!' };
-console.log(mergeTest(obj1, obj2));
+const view = new View();
+const model = new Model();
+const controller = new Controller(view, model);
