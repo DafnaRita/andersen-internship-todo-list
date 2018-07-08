@@ -12,3 +12,9 @@
 :root {
     --default-mobile-screen-size: 320;
 }
+
+/* min-width*/
+:root {
+    --app-min-width: 190px;
+    --button-min-width: 50px;
+}
