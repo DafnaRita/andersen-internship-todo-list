@@ -105,10 +105,17 @@ button {
     position: relative;
 }
 
+.task-comleted {
+    background-color: var(--task-completed-color);
+}
+
+.task-comleted > button{
+    visibility: hidden;
+}
+
 .tasks-list :last-child {
     border-bottom: none;
 }
-
 
 /*  delete edit and remove buttons on task-item*/
 .delete-task-button, .ready-task-button, .edit-task-button  {

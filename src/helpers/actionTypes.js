@@ -5,4 +5,5 @@ export default keyMirror({
     RENDER_ITEM: null,
     EDITED_ITEM: null,
     DELETED_ITEM: null,
+    COMPLETES_ITEM: null,
 });

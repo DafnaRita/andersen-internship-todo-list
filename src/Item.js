@@ -2,11 +2,17 @@ export default class Item {
     constructor(description, id) {
         this.id = id;
         this._description = description;
-        this.isClosed = false;
+        this._isClosed = false;
     }
 
-    closeItem() {
-        this.isClosed = true;
+    get isClosed() {
+        return this._isClosed;
+    }
+
+    set isClosed(condition) {
+        if (condition === true) {
+            this._isClosed = true;
+        }
     }
 
     get description() {

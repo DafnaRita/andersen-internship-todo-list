@@ -47,11 +47,12 @@ export default class View extends EventEmitter {
             const itemRH = new ItemRenderHelper(this.view.taskList, item.id);
             const renderedItem = itemRH.renderItem(item.description);
             this.view.addEditItemAbility(renderedItem);
-            this.view.deleteItemAbility(renderedItem);
+            this.view.addDeleteItemAbility(renderedItem);
+            this.view.addCompleteItemAbility(renderedItem);
         });
     }
 
-    deleteItemAbility(renderedItem) {
+    addDeleteItemAbility(renderedItem) {
         const [deleteButton] = renderedItem.getElementsByClassName(
             buttonsInfo.get(buttonTypes.DELETE_BUTTON).buttonClass,
         );
@@ -60,7 +61,7 @@ export default class View extends EventEmitter {
         deleteButton.addEventListener('click', (event) => {
             const itemId = event.target.parentElement.id;
             const itemRH = new ItemRenderHelper(this.taskList, itemId);
-            itemRH.deleteItemById(itemId);
+            itemRH.deleteItem();
         });
 
         /* handle item was delete from list */
@@ -70,7 +71,6 @@ export default class View extends EventEmitter {
             if (event.target.className !== buttonsInfo.get(buttonTypes.DELETE_BUTTON).buttonClass) {
                 return;
             }
-            console.log('id = ', itemId);
             this.emit(actionTypes.DELETED_ITEM, itemId);
         });
     }
@@ -106,6 +106,29 @@ export default class View extends EventEmitter {
                     newDescripton: currentDescription,
                 });
             }
+        });
+    }
+
+    addCompleteItemAbility(renderedItem) {
+        const [completeButton] = renderedItem.getElementsByClassName(
+            buttonsInfo.get(buttonTypes.COMPLETE_BUTTON).buttonClass,
+        );
+
+        /* complet item when a complete button is pressed */
+        completeButton.addEventListener('click', (event) => {
+            const itemId = event.target.parentElement.id;
+            const itemRH = new ItemRenderHelper(this.taskList, itemId);
+            itemRH.completeItem();
+        });
+
+        /* handle item was completes */
+        renderedItem.addEventListener('click', (event) => {
+            const itemId = event.target.parentElement.id;
+            /* check a complete button(not another button) was clicked */
+            if (event.target.className !== buttonsInfo.get(buttonTypes.COMPLETE_BUTTON).buttonClass) {
+                return;
+            }
+            this.emit(actionTypes.COMPLETES_ITEM, itemId);
         });
     }
 }

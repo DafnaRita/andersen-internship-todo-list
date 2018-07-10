@@ -6,9 +6,13 @@ export default class ItemRenderHelper {
         this.itemId = itemId;
     }
 
-    deleteItemById() {
+    deleteItem() {
         this.item = document.getElementById(this.itemId);
         this.taskList.removeChild(this.item);
+    }
+
+    completeItem() {
+        this.item = document.getElementById(this.itemId).classList.add('task-comleted');
     }
 
     generateItem(description) {

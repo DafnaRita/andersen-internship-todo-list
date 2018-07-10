@@ -27,4 +27,9 @@ export default class Model {
         this.itemsMap.get(editedItemInfo.id).description = editedItemInfo.newDescripton;
         console.log(`changed description - ${this.itemsMap.get(editedItemInfo.id).description} of item  and id - ${this.itemsMap.get(editedItemInfo.id).id}`);
     }
+
+    completeItem(itemId) {
+        this.itemsMap.get(itemId).isClosed = true;
+        console.log(`The task with id - ${itemId} is completed`);
+    }
 }
