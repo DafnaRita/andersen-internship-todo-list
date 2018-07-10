@@ -47,6 +47,31 @@ export default class View extends EventEmitter {
             const itemRH = new ItemRenderHelper(this.view.taskList, item.id);
             const renderedItem = itemRH.renderItem(item.description);
             this.view.addEditItemAbility(renderedItem);
+            this.view.deleteItemAbility(renderedItem);
+        });
+    }
+
+    deleteItemAbility(renderedItem) {
+        const [deleteButton] = renderedItem.getElementsByClassName(
+            buttonsInfo.get(buttonTypes.DELETE_BUTTON).buttonClass,
+        );
+
+        /* delete item when a delete button is pressed */
+        deleteButton.addEventListener('click', (event) => {
+            const itemId = event.target.parentElement.id;
+            const itemRH = new ItemRenderHelper(this.taskList, itemId);
+            itemRH.deleteItemById(itemId);
+        });
+
+        /* handle item was delete from list */
+        renderedItem.addEventListener('click', (event) => {
+            const itemId = event.target.parentElement.id;
+            /* check a delete button was clicked */
+            if (event.target.className !== buttonsInfo.get(buttonTypes.DELETE_BUTTON).buttonClass) {
+                return;
+            }
+            console.log('id = ', itemId);
+            this.emit(actionTypes.DELETED_ITEM, itemId);
         });
     }
 

@@ -4,4 +4,5 @@ export default keyMirror({
     ENTER_ITEM: null,
     RENDER_ITEM: null,
     EDITED_ITEM: null,
+    DELETED_ITEM: null,
 });

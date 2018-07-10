@@ -12,6 +12,7 @@ export default class Controller {
         this.view.on(actionTypes.ENTER_ITEM, this.addItemToModel.bind(this));
         this.view.on(actionTypes.RENDER_ITEM, this.view.renderItems.bind(this));
         this.view.on(actionTypes.EDITED_ITEM, this.model.editItemById.bind(this.model));
+        this.view.on(actionTypes.DELETED_ITEM, this.model.deleteItem.bind(this.model));
     }
 
     addItemToModel(description) {
