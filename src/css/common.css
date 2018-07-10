@@ -78,7 +78,7 @@ button {
 }
 
 .add-task {
-    min-width: 40px;
+    min-width: 50px;
     padding: 15px 5px 30px 5px;
 }
 
@@ -96,52 +96,12 @@ button {
 
 .task {
     min-height: 30px;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 30px 10px 10px 10px;
+    padding: 10px;
 
     border-bottom: 1px solid var(--light-accent-color);
     word-wrap: break-word;
-    position: relative;
 }
 
 .tasks-list :last-child {
     border-bottom: none;
 }
-
-
-/*  delete edit and remove buttons on task-item*/
-.delete-task-button, .ready-task-button, .edit-task-button  {
-    position: absolute;
-    top: 0;
-    width: 25px;
-    height: 25px;
-    font-size: 16px;
-    vertical-align: middle;
-    line-height: 18px;
-}
-
-.delete-task-button:hover, .ready-task-button:hover, .edit-task-button:hover  {
-    color: white;
-    background-color: var(--focus-color);
-}
-
-.edit-task-button {
-    right: 0;
-}
-
-.delete-task-button {
-    right: 25px;
-}
-
-.ready-task-button {
-    right: 50px;
-}
-
-li.task > div.description-container[contenteditable="true"] {
-    outline: 2px solid var(--focus-color);
-}
-li.task > div.description-container[contenteditable="true"]:focus {
-    outline: 2px solid var(--focus-color);
-}
-
