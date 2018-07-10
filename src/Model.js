@@ -3,7 +3,7 @@ import Item from './Item';
 
 export default class Model {
     constructor() {
-        this.items = new Map();
+        this.itemsMap = new Map();
     }
 
     static convertItem(description) {
@@ -14,7 +14,12 @@ export default class Model {
 
     addItem(item) {
         console.log(`added Item with description - ${item.description} and id - ${item.id} to Model `);
-        this.items.set(item.id, item);
-        return this.items.get(item.id);
+        this.itemsMap.set(item.id, item);
+        return this.itemsMap.get(item.id);
+    }
+
+    editItemById(editedItemInfo) {
+        this.itemsMap.get(editedItemInfo.id).description = editedItemInfo.newDescripton;
+        console.log(`changed description - ${this.itemsMap.get(editedItemInfo.id).description} of item  and id - ${this.itemsMap.get(editedItemInfo.id).id} to Model`);
     }
 }
